@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- ---------------------------- Alpine.js CDN ---------------------------- -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- ----------------------------- TailwindCSS ----------------------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formation Alpine.js | x-data</title>
+  </head>
+  <body
+    class="bg-indigo-800 min-h-screen min-w-screen py-4 px-8"
+  >
+    <header>
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                    Button pour retourner en arriere                     -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="absolute top-0 left-4 p-4">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          <a href="./"> Retour </a>
+        </button>
+      </div>
+
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                           Contenu de la page                            -->
+      <!-- ----------------------------------------------------------------------- -->
+      <h1
+        class="text-4xl font-bold text-center text-amber-500 capitalize"
+      >
+        La directive x-data & la portée des données
+      </h1>
+    </header>
+
+    <main class="grid lg:grid-cols-2 gap-10 mt-10">
+      <!-- ---------------------------- Partie Gauche ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <p class="bg-gray-200 p-2 rounded shadow text-lg">
+          x-data, x-text
+        </p>
+
+        <p class="text-slate-300">
+          Dans cet exemple, nous définissons des objets
+          JavaScript. ("Variables") En Alpine.js, ces objets
+          sont connectés à des éléments HTML. Nous allons
+          connecter un objet à la balise
+          <span class="font-bold text-amber-500">body</span
+          >, et un autre à
+          <span class="font-bold text-amber-500">div1</span
+          >.
+        </p>
+
+        <!-- ------------------------------ Diviseur ------------------------------- -->
+        <div class="relative">
+          <div
+            class="absolute inset-0 flex items-center"
+            aria-hidden="true"
+          >
+            <div
+              class="w-full border-t border-gray-300"
+            ></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span
+              class="bg-white pr-2 text-sm text-gray-500"
+              >x-data</span
+            >
+          </div>
+        </div>
+
+        <!-- -------- Emplacement ou il faudra utiliser x-data et sa portée -------- -->
+        <div
+          class="bg-amber-500 p-4 rounded shadow text-slate-100"
+        >
+          <h2 class="text-lg font-bold">
+            Objet et Portée : Où votre objet est-il visible
+            ?
+          </h2>
+          <p>bodyVar : <span>placeholder</span></p>
+        </div>
+
+        <!-- ------------------------------ Diviseur ------------------------------- -->
+        <div class="relative">
+          <div
+            class="absolute inset-0 flex items-center"
+            aria-hidden="true"
+          >
+            <div
+              class="w-full border-t border-gray-300"
+            ></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span
+              class="bg-white pr-2 text-sm text-gray-500"
+              >Portée</span
+            >
+          </div>
+        </div>
+
+        <!-- ------------------------- Les 2 blocs de div -------------------------- -->
+        <div>
+          <div class="flex flex-col space-y-8">
+            <div
+              class="bg-blue-200 w-72 p-3 rounded shadow font-bold"
+            >
+              Ceci est la Div 1
+            </div>
+            <div
+              class="bg-green-200 w-72 p-3 rounded shadow font-bold"
+            >
+              Ceci est la Div 2
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------------------------ Diviseur ------------------------------- -->
+        <div class="relative">
+          <div
+            class="absolute inset-0 flex items-center"
+            aria-hidden="true"
+          >
+            <div
+              class="w-full border-t border-gray-300"
+            ></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span
+              class="bg-white pr-2 text-sm text-gray-500"
+              >Étapes</span
+            >
+          </div>
+        </div>
+
+        <div>
+          <h2
+            class="mb-2 text-lg font-semibold text-amber-500"
+          >
+            Les Étapes
+          </h2>
+          <ol class="list-disc list-inside text-slate-100">
+            <li>
+              Définir
+              <span class="font-bold text-amber-500"
+                >x-data="{bodyObj: 'body'}"</span
+              >
+              dans la balise body.
+            </li>
+            <li>
+              Sortie de "bodyObj" avec
+              <span class="font-bold text-amber-500"
+                >x-text="bodyObj"</span
+              >
+            </li>
+            <li>
+              Définition de l'objet Div-1 :
+              <span class="font-bold text-amber-500"
+                >x-data="{div1obj: 'div1'}"</span
+              >
+            </li>
+            <li>Sortie de l'objet Div-1 dans Div1</li>
+            <li>Sortie de "bodyObj" dans Div2</li>
+            <li>
+              Affichage des cas qui NE fonctionneront PAS !
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ---------------------------- Partie Droite ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <h2 class="text-2xl text-amber-500 font-bold">
+          Choses à retenir :
+        </h2>
+        <ul class="list-disc list-inside text-slate-100">
+          <li>
+            En plus de la définition, la sortie des objets
+            est
+            <span class="font-bold text-amber-500"
+              >liée aux éléments HTML</span
+            >
+            dans Alpine.js.
+          </li>
+          <li>
+            Si une variable n'est
+            <span class="font-bold text-amber-500"
+              >pas définie</span
+            >, vous pouvez utiliser un
+            <span class="font-bold text-amber-500"
+              >placeholder</span
+            >.
+          </li>
+          <li>
+            Les variables en JS - Les objets peuvent bien
+            sûr être des chaînes de caractères, des nombres,
+            des booléens, mais aussi d'autres objets ! (voir
+            la prochaine leçon)
+          </li>
+        </ul>
+
+        <h2 class="text-lg text-red-500 font-bold">
+          Contraintes importantes !
+        </h2>
+        <ul class="list-disc list-inside text-slate-100">
+          <li>
+            Les objets ne peuvent être utilisés que dans le
+            même élément HTML
+            <span class="font-bold text-amber-500"
+              >ou dans des éléments imbriqués</span
+            >.
+          </li>
+          <li>
+            Un élément HTML
+            <span class="font-bold text-amber-500"
+              >ne peut contenir ou afficher qu'un seul</span
+            >
+            objet spécifique.
+          </li>
+        </ul>
+
+        <h2 class="text-lg text-red-500 font-bold">
+          Ce qui NE fonctionnera PAS
+        </h2>
+        <ul class="list-disc list-inside text-slate-100">
+          <li>
+            Affichage d'un objet dans un élément
+            <span class="font-bold text-amber-500"
+              >parent</span
+            >
+            ou un
+            <span class="font-bold text-amber-500"
+              >élément frère</span
+            >.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

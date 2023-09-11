@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- ---------------------------- Alpine.js CDN ---------------------------- -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- ----------------------------- TailwindCSS ----------------------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formation Alpine.js | x-model</title>
+  </head>
+  <body
+    class="bg-indigo-800 min-h-screen min-w-screen py-4 px-8"
+  >
+    <header>
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                    Button pour retourner en arriere                     -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="absolute top-0 left-4 p-4">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          <a href="./"> Retour </a>
+        </button>
+      </div>
+
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                           Contenu de la page                            -->
+      <!-- ----------------------------------------------------------------------- -->
+      <h1
+        class="text-4xl font-bold text-center text-amber-500 capitalize"
+      >
+        Directive x-model
+      </h1>
+    </header>
+
+    <main class="grid lg:grid-cols-2 gap-10 mt-10">
+      <!-- ---------------------------- Partie Gauche ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <p
+          class="bg-gray-200 p-2 rounded shadow text-lg mb-10"
+        >
+          <span class="font-bold text-amber-500"
+            >x-model</span
+          >
+          : La valeur de l'élément (s) et la valeur d'un
+          objet (données) s'influencent mutuellement.
+          <span class="font-bold text-amber-500"
+            >Ceci est une liaison à double sens !</span
+          >
+        </p>
+
+        <!-- ------------------------------ Exemples ------------------------------- -->
+        <div class="grid gap-10">
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #1                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple1">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°1</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Le texte dans l'élément de saisie est
+                immédiatement affiché en sortie
+              </h2>
+
+              <div>
+                <input
+                  class="border border-1 p-1 rounded shadow"
+                  type="text"
+                />
+                <span class="text-slate-100"
+                  >Sortie :
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #2                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple2">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°2</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Le texte dans les champs de saisie peut être
+                influencé par les deux champs de saisie
+              </h2>
+
+              <div>
+                <input
+                  class="border border-1 p-1 rounded shadow"
+                  type="text"
+                />
+                <input
+                  class="border border-1 p-1 rounded shadow"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #3                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple3">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°2</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                La couleur du Div ET du Sélecteur est
+                influencée par la couleur choisie.
+              </h2>
+
+              <div class="flex my-4">
+                <div
+                  class="bg-gray-600"
+                  style="
+                    height: 5rem;
+                    width: 5rem;
+                    border: 1px solid #555;
+                    border-radius: 0.5rem;
+                  "
+                ></div>
+                <select
+                  class="bg-gray-600 h-full p-2 rounded ml-3 border border-gray-900 text-white focus:outline-none"
+                >
+                  <option value="gray">
+                    Sélectionnez une couleur
+                  </option>
+                  <option>vert</option>
+                  <option>bleu</option>
+                  <option>rouge</option>
+                </select>
+              </div>
+
+              <div class="mt-10 text-slate-300">
+                <h4 class="text-xl text-red-500">
+                  À retenir :
+                </h4>
+                <p>
+                  <span class="font-bold text-amber-500"
+                    >x-text</span
+                  >
+                  et
+                  <span class="font-bold text-amber-500"
+                    >x-bind(:)</span
+                  >
+                  peuvent utiliser la <u>concaténation</u>,
+                  par exemple :<br />
+                  <i>x-text="'Sortie : ' + myInput"</i
+                  ><br />
+                  <i
+                    >:class="selectClasses + ' bg-' +
+                    myColor + '-600'"</i
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------- Partie Droite ---------------------------- -->
+      <section class="w-full flex flex-col space-y-10">
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°1
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Ajoutez à la section
+              <span class="font-bold text-amber-500"
+                >x-data="{ myInput: '' }"</span
+              >
+            </li>
+            <li>
+              Ajoutez au span
+              <span class="font-bold text-amber-500"
+                >x-text="'Sortie : ' + myInput"</span
+              >
+            </li>
+            <li>
+              Ajoutez à l'input
+              <span class="font-bold text-amber-500"
+                >x-model="myInput"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°2
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Ajoutez à la section
+              <span class="font-bold text-amber-500"
+                >x-data="{ myValue: 'début' }"</span
+              >
+            </li>
+            <li>
+              Ajoutez AUX DEUX inputs
+              <span class="font-bold text-amber-500"
+                >x-model="myValue"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°3
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Ajoutez à la section un
+              <span class="font-bold text-amber-500"
+                >x-data</span
+              >
+              avec
+              <span class="font-bold text-amber-500"
+                >myColor: 'gris',</span
+              >
+            </li>
+            <li>
+              Ajoutez une autre clé
+              <span class="font-bold text-amber-500"
+                >selectClasses: ''</span
+              >
+              à cet <i>x-data</i>
+            </li>
+            <li>
+              Découpez maintenant toutes les classes SAUF
+              <i>bg-gray-600</i> et mettez-les dans la
+              valeur de la clé <i>selectClasses</i>.
+            </li>
+            <li>
+              Vous pouvez maintenant supprimer
+              <i>bg-gray-600</i>.
+            </li>
+            <li>
+              Liez maintenant la couleur de la
+              <i>div</i> avec :
+              <span class="font-bold text-amber-500"
+                >:class="'bg-' + myColor + '-600'"</span
+              >
+            </li>
+            <li>
+              Liez maintenant la couleur du
+              <i>select</i> avec :
+              <b
+                >:class="selectClasses + ' bg-' + myColor +
+                '-600'"</b
+              >
+            </li>
+            <li>
+              Connectez la <i>valeur du select</i> à l'
+              <i>objet "myColor"</i> avec
+              <span class="font-bold text-amber-500"
+                >x-model="myColor"</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

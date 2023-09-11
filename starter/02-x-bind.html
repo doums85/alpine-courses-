@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- ---------------------------- Alpine.js CDN ---------------------------- -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- ----------------------------- TailwindCSS ----------------------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formation Alpine.js | x-bind</title>
+  </head>
+  <body
+    class="bg-indigo-800 min-h-screen min-w-screen py-4 px-8"
+  >
+    <header>
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                    Button pour retourner en arriere                     -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="absolute top-0 left-4 p-4">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          <a href="./"> Retour </a>
+        </button>
+      </div>
+
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                           Contenu de la page                            -->
+      <!-- ----------------------------------------------------------------------- -->
+      <h1
+        class="text-4xl font-bold text-center text-amber-500 capitalize"
+      >
+        x-bind (:) - manipuler les attributs HTML
+      </h1>
+    </header>
+
+    <main class="grid lg:grid-cols-2 gap-10 mt-10">
+      <!-- ---------------------------- Partie Gauche ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <p
+          class="bg-gray-200 p-2 rounded shadow text-lg mb-10"
+        >
+          x-bind(:)<br />
+          <span class="font-bold text-amber-500"
+            >x-bind</span
+          >
+          : Définit la valeur de l'attribut HTML, par
+          exemple <i>value, style, class</i>, etc.
+        </p>
+
+        <div class="grid gap-10">
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #1                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple1">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°1</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Définir la valeur d'un champ de saisie avec
+                un objet value
+              </h2>
+
+              <input
+                class="border border-1 p-1 rounded shadow"
+                value=""
+                placeholder="some placeholder"
+                type="text"
+              />
+              <span
+                class="italic text-sm text-slate-300 text-slate-300"
+                >La valeur d'entrée est liée à "myVar"</span
+              >
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #2                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple2">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°2</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Définir l'attribut de style
+              </h2>
+
+              <span>Un peu de texte</span><br />
+              <span class="italic text-sm text-slate-300"
+                >La propriété font-weight est définie par
+                "myStyle"</span
+              >
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #3                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple3">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°3</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Définir l'attribut classes
+              </h2>
+
+              <div
+                style="
+                  height: 4rem;
+                  width: 4rem;
+                  border: 1px solid black;
+                "
+              ></div>
+              <span class="italic text-sm text-slate-300"
+                >background-color is set by "myClass"</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------- Partie Droite ---------------------------- -->
+      <section class="w-full flex flex-col space-y-10">
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°1
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Dans l'élément Input, définissez
+              <span class="font-bold text-amber-500"
+                >x-data="{ myVar: 'nouveau texte'}"</span
+              >
+              puis liez :
+              <span class="font-bold text-amber-500"
+                >:value="myVar"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°2
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Dans la balise Span, définissez
+              <span class="font-bold text-amber-500"
+                >x-data="{ myStyle :
+                'font-weight:700'}"</span
+              >
+              puis liez :
+              <span class="font-bold text-amber-500"
+                >:style="myStyle"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°3
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Dans la balise Div, définissez
+              <span class="font-bold text-amber-500"
+                >x-data="{ myClass : 'bg-blue-500'}"</span
+              >
+              puis liez :
+              <span class="font-bold text-amber-500"
+                >:class="myClass"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl text-red-500 font-bold">
+            Choses à retenir :
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Utilisez toujours un deux-points (:) à la
+              place de
+              <i>x-bind</i> - c'est plus simple !
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

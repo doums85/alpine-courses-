@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- ---------------------------- Alpine.js CDN ---------------------------- -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- ----------------------------- TailwindCSS ----------------------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formation Alpine.js | x-on</title>
+  </head>
+  <body
+    class="bg-indigo-800 min-h-screen min-w-screen py-4 px-8"
+  >
+    <header>
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                    Button pour retourner en arriere                     -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="absolute top-0 left-4 p-4">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          <a href="./"> Retour </a>
+        </button>
+      </div>
+
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                           Contenu de la page                            -->
+      <!-- ----------------------------------------------------------------------- -->
+      <h1
+        class="text-4xl font-bold text-center text-amber-500 capitalize"
+      >
+        X-ON (@click etc.)
+      </h1>
+    </header>
+
+    <main class="grid lg:grid-cols-2 gap-10 mt-10">
+      <!-- ---------------------------- Partie Gauche ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <p
+          class="bg-gray-200 p-2 rounded shadow text-lg mb-10"
+        >
+          Shorthand-Syntax (@) pour x-on, x-ref + $refs
+        </p>
+
+        <!-- ------------------------------ Exemples ------------------------------- -->
+        <div class="grid gap-10">
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #1                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple1">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°1</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div class="text-slate-300">
+              <h2 class="text-2xl text-amber-500 font-bold">
+                @click
+              </h2>
+
+              <div>
+                <p class="text-lg mb-4">
+                  Réinitialiser la valeur de l'objet au clic
+                </p>
+                <div>
+                  <input
+                    class="border border-1 p-1 rounded shadow"
+                    type="text"
+                  />
+                  <span>Sortie</span>
+                  <button
+                    type="button"
+                    class="ml-2 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Réinitialiser
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #2                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple2">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°2</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                @mouseenter, @click.away
+              </h2>
+
+              <div class="text-slate-300">
+                <p class="text-lg">
+                  Show Submenu and hide it on @click.outside
+                  (former ".away")
+                </p>
+                <div class="relative">
+                  <div
+                    id="button"
+                    class="bg-slate-200 text-gray-800 hover:bg-slate-300 inline-block px-2 py-1 cursor-pointer"
+                  >
+                    Open Menu
+                  </div>
+                  <div class="mt-2" id="submenu">
+                    <a
+                      target="_blank"
+                      class="px-2 py-1 inline-block w-32 text-gray-800 cursor-pointer bg-slate-200 hover:bg-slate-300"
+                      href="https://www.google.com"
+                      >Google</a
+                    ><br />
+                    <a
+                      target="_blank"
+                      class="px-2 py-1 inline-block w-32 text-gray-800 cursor-pointer bg-slate-200 hover:bg-slate-300"
+                      href="https://www.amazon.com"
+                      >Amazon</a
+                    ><br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #3                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple3">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°3</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                @keyup + x-ref + $refs
+              </h2>
+
+              <div>
+                <p class="text-lg text-slate-300">
+                  Compter les caractères dans l'entrée
+                </p>
+                <section>
+                  <input
+                    placeholder="Saisir le nom d'utilisateur (max. 10 caractères)"
+                    class="border border-1 p-1 w-60 rounded shadow"
+                    maxlength="10"
+                    type="text"
+                  />
+                  <br />
+                  <span></span>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------- Partie Droite ---------------------------- -->
+      <section class="w-full flex flex-col space-y-10">
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°1
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Donnez à la section un
+              <span class="font-bold text-amber-500"
+                >x-data="{ myInput : '' }"</span
+              >
+            </li>
+            <li>
+              Donnez au premier <i>span</i>
+              <span class="font-bold text-amber-500"
+                >x-text="'Sortie : ' + myInput"</span
+              >
+            </li>
+            <li>
+              Connectez l'input à l'objet via
+              <span class="font-bold text-amber-500"
+                >x-model="myInput"</span
+              >
+            </li>
+            <li>
+              Donnez au <i>deuxième span (bouton)</i> un
+              gestionnaire d'événement pour vider l'objet :
+              <span class="font-bold text-amber-500"
+                >@click="myInput = ''"</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°2
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Donnez à la section un
+              <span class="font-bold text-amber-500"
+                >x-data="{ open : false }"</span
+              >
+            </li>
+            <li>
+              Rendez la div avec le sous-menu dépendante de
+              l'objet <i>open</i>, en lui donnant
+              <span class="font-bold text-amber-500"
+                >x-show="open"</span
+              >
+            </li>
+            <li>
+              Donnez au <i>"bouton div"</i> un
+              <span class="font-bold text-amber-500"
+                >@mouseenter="open = true"</span
+              >
+              pour ouvrir le sous-menu au survol de la
+              souris.
+            </li>
+            <li>
+              Donnez au <i>"bouton div"</i> un
+              <span class="font-bold text-amber-500"
+                >@click.outside="open = false"</span
+              >
+              pour fermer le sous-menu en cliquant n'importe
+              où à l'extérieur du bouton.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°3
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Donnez à la section un
+              <span class="font-bold text-amber-500"
+                >x-data="{ remaining: 10 }"</span
+              >
+              pour préconfigurer le nombre de caractères
+              restants.
+            </li>
+            <li>
+              Donnez au <i>span</i> un
+              <span class="font-bold text-amber-500"
+                >x-text="remaining + ' caractères
+                restants'"</span
+              >
+              pour afficher les caractères restants avec
+              l'objet "<i>remaining</i>"
+            </li>
+            <li>
+              Donnez à l'input un
+              <span class="font-bold text-amber-500"
+                >x-ref="username"</span
+              >
+              pour pouvoir référencer la longueur de la
+              valeur dans l'étape suivante.
+            </li>
+            <li>
+              Donnez à l'input
+              <span class="font-bold text-amber-500"
+                >@keyup="remaining = 10 -
+                $refs.username.value.length"</span
+              >, pour mettre à jour l'objet
+              "<i>remaining</i>"
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

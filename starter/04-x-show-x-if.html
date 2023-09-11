@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- ---------------------------- Alpine.js CDN ---------------------------- -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- ----------------------------- TailwindCSS ----------------------------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formation Alpine.js | x-show / x-if</title>
+  </head>
+  <body
+    class="bg-indigo-800 min-h-screen min-w-screen py-4 px-8"
+  >
+    <header>
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                    Button pour retourner en arriere                     -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="absolute top-0 left-4 p-4">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+          <a href="./"> Retour </a>
+        </button>
+      </div>
+
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                           Contenu de la page                            -->
+      <!-- ----------------------------------------------------------------------- -->
+      <h1
+        class="text-4xl font-bold text-center text-amber-500 capitalize"
+      >
+        x-show / x-if
+      </h1>
+    </header>
+
+    <main class="grid lg:grid-cols-2 gap-10 mt-10">
+      <!-- ---------------------------- Partie Gauche ---------------------------- -->
+      <section class="w-full flex flex-col space-y-4">
+        <p
+          class="bg-gray-200 p-2 rounded shadow text-lg mb-10"
+        >
+          x-show, expressions ternaires, x-if
+        </p>
+
+        <!-- ------------------------------ Exemples ------------------------------- -->
+        <div class="grid gap-10">
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #1                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple1">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°1</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div class="text-slate-300">
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Afficher l'élément uniquement avec la
+                condition x-show
+              </h2>
+
+              <div>
+                <button
+                  type="button"
+                  class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                >
+                  Afficher
+                </button>
+
+                <span
+                  class="bg-gray-200 ml-3 p-2 rounded text-gray-800"
+                  >Je suis censé être vu seulement lorsque
+                  <b>show == true</b>.</span
+                >
+                <p class="mt-2">
+                  Le texte et la couleur du bouton sont
+                  modifiés en utilisant des expressions
+                  ternaires.
+                </p>
+                <p>
+                  Lorsque l'élément est masqué, il est
+                  toujours présent, mais il a
+                  <span class="font-bold text-amber-500"
+                    >style="display:none;"</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------------------------- -->
+          <!--                               EXEMPLE #2                                -->
+          <!-- ----------------------------------------------------------------------- -->
+          <div id="exemple2">
+            <div class="relative">
+              <div
+                class="absolute inset-0 flex items-center"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-full border-t border-gray-300"
+                ></div>
+              </div>
+              <div class="relative flex justify-start">
+                <span
+                  class="bg-white pr-2 text-sm text-gray-500"
+                  >Exemple n°2</span
+                >
+              </div>
+            </div>
+
+            <!-- ----------------------------- Exemple  ------------------------------ -->
+            <div>
+              <h2 class="text-2xl text-amber-500 font-bold">
+                Afficher l'élément uniquement avec la
+                condition x-if
+              </h2>
+
+              <div class="text-slate-300">
+                <button
+                  type="button"
+                  class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                >
+                  Afficher
+                </button>
+                <span
+                  class="bg-gray-200 ml-3 p-2 rounded text-gray-800"
+                  >Salut ! Quand je suis parti, vous ne me
+                  trouverez pas dans le DOM !</span
+                >
+                <p class="mt-2">
+                  Si vous voulez utiliser <b>x-if</b>, vous
+                  devez envelopper l'élément que vous
+                  souhaitez afficher ou masquer avec une
+                  balise <b>template</b>.
+                </p>
+                <p>
+                  Dans ce cas, l'élément sera
+                  <b>complètement supprimé du DOM </b>
+                  lorsqu'il est masqué.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------- Partie Droite ---------------------------- -->
+      <section class="w-full flex flex-col space-y-10">
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°1
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Ajoutez à la section un objet
+              <span class="font-bold text-amber-500"
+                >x-data="{ show: false }"</span
+              >
+            </li>
+            <li>
+              Rendez la visibilité de la balise span
+              dépendante de l'objet
+              <i>show</i> en lui ajoutant un
+              <span class="font-bold text-amber-500"
+                >x-show="show"</span
+              >, et testez-le.
+            </li>
+            <li>
+              Ajoutez au bouton un
+              <span class="font-bold text-amber-500"
+                >@click="show = !show;"</span
+              >, pour basculer la visibilité au clic.
+            </li>
+            <li>
+              Modifiez le texte du bouton en fonction de
+              <i>show</i>, en utilisant
+              <span class="font-bold text-amber-500"
+                >x-text="!show ? 'Afficher' :
+                'Masquer'"</span
+              >
+            </li>
+            <li>
+              Extrayez les classes de base du bouton (sans
+              la couleur) dans une deuxième propriété de
+              votre
+              <i>objet de section</i> :
+              <span class="font-bold text-amber-500"
+                >buttonClass: 'transition p-1 rounded shadow
+                focus:outline-none '</span
+              >, n'oubliez pas un espace à la fin !
+            </li>
+            <li>
+              Rendez la couleur du bouton dynamique et
+              dépendante de
+              <i>show</i>, en concaténant différentes
+              classes de couleur à l'aide d'une expression
+              ternaire comme ceci :
+              <br />
+              <span class="font-bold text-amber-500"
+                >:class="!show ? buttonClass + 'bg-green-300
+                hover:bg-green-400' : buttonClass +
+                'bg-red-300 hover:bg-red-400'"</span
+              >
+            </li>
+            <li>
+              Testez tout et ouvrez les outils de
+              développement de Chrome. Dans les outils de
+              développement, observez comment la balise span
+              obtient un style
+              <span class="font-bold text-amber-500"
+                >display: none</span
+              >, lorsque vous cliquez sur le bouton
+              <i>Masquer</i>.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            class="text-xl text-white uppercase mb-2 font-bold"
+          >
+            Étape exemple n°2
+          </h3>
+
+          <ul class="list-disc list-inside text-slate-100">
+            <li>
+              Copiez l'intégralité de l'Exemple 1 dans
+              l'Exemple 2.
+            </li>
+            <li>
+              Enveloppez la balise span que vous souhaitez
+              afficher/masquer avec une
+              <span class="font-bold text-amber-500"
+                >balise Template</span
+              >.
+            </li>
+            <li>
+              Ajoutez la balise de début
+              <i>template</i>
+              <span class="font-bold text-amber-500"
+                >x-if="show"</span
+              >.
+            </li>
+            <li>
+              Testez l'exemple et ouvrez les outils de
+              développement de Chrome.
+            </li>
+            <li>
+              Dans les outils de développement, observez
+              comment l'ensemble du HTML apparaît/disparaît
+              lors de l'affichage/masquage.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
