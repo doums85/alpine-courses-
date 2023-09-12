@@ -1,0 +1,19 @@
+Instructions
+
+
+1.  Ajoutez l'attribut x-data à votre modal pour définir ses données,
+    et l'attribut x-show pour afficher ou masquer le modal en fonction
+    d'une variable Alpine.js. Utilisez également un attribut x-cloak 
+    pour éviter que le contenu du modal ne soit visible pendant le chargement
+    de la page.
+
+2.  Ajoutez des attributs x-on:click aux éléments qui doivent ouvrir et fermer
+    le modal. Par exemple, pour ouvrir le modal en cliquant sur le bouton 
+    "Toggle modal"   
+
+3.  Ajoutez un bouton ou un élément avec un attribut x-on:click pour fermer le modal.
+    Dans cet exemple, nous utilisons le bouton avec la croix pour fermer le modal 
+
+4.  Ajoutez un gestionnaire d'événements pour fermer le modal lorsque 
+    l'utilisateur clique à l'extérieur de celui-ci. Vous pouvez ajouter
+    cet attribut à l'élément <div> du modal principal.

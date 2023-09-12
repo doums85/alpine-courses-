@@ -1,0 +1,41 @@
+Instructions VERSION 1:
+
+1.  Créer une variable avec Alpine.js `activeTab`
+    initier à `"profile"`
+
+2.  Ajoutez des gestionnaires d'événements de clic (x-on:click)
+    aux boutons des onglets pour permettre aux utilisateurs de basculer 
+    entre les onglets. Utilisez également les directives x-show pour 
+    afficher ou masquer le contenu des onglets en fonction de l'onglet actif 
+
+3.  Répétez ce modèle pour chaque bouton d'onglet, en remplaçant les valeurs 
+    activeTab et les classes CSS en conséquence.
+
+_____________________________________________________________________________________
+
+Instructions VERSION 2:
+
+Pour la version, il faudra utiliser x-for
+
+1.  Créer une variable `data` qui sera un tableau d'objet exemple:
+    const data = [
+        {
+            name: 'profile',
+            content: " <p class="text-sm text-gray-500">
+            This is some placeholder content the
+            <strong class="font-medium text-gray-800"
+            >Profile tab's associated content</strong
+             >. Clicking another tab will toggle the visibility
+            of this one for the next. The tab JavaScript swaps
+            classes to control the content visibility and
+            styling.
+            </p>"
+        }
+    ]
+
+2.  Utiliser `data` pour faire une boucle sur les tabs et afficher chaque `name`
+
+3.  Gérer l'élément actif ou pas en utilisant l'index de ce dernier
+
+4.  Faites de meme pour le contenu des tabs ATTENTION le contenu n'est pas du text
+    mais du HTML 
