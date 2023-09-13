@@ -30,92 +30,115 @@
         <a href="./"> Retour </a>
       </button>
     </div>
+    <div
+      x-data="{
+      activeTab: 'Profile',
+      activeTabClass: 'inline-block p-4 border-b-2 rounded-t-lg text-white',
+      inactiveTabClass: 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300 text-gray-400'
+    }"
+    >
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                                  Tabs                                   -->
+      <!-- ----------------------------------------------------------------------- -->
+      <div class="mb-4 border-b border-gray-200 mt-20">
+        <ul
+          class="flex flex-wrap -mb-px text-sm font-medium text-center"
+        >
+          <li class="mr-2">
+            <button
+              @click="activeTab = 'Profile' "
+              :class="activeTab == 'Profile' ? activeTabClass : inactiveTabClass"
+              type="button"
+            >
+              Profile
+            </button>
+          </li>
+          <li class="mr-2">
+            <button
+              @click="activeTab = 'Dashboard' "
+              :class="activeTab == 'Dashboard' ? activeTabClass : inactiveTabClass"
+              type="button"
+            >
+              Dashboard
+            </button>
+          </li>
+          <li class="mr-2">
+            <button
+              @click="activeTab = 'Settings' "
+              :class="activeTab == 'Settings' ? activeTabClass : inactiveTabClass"
+            >
+              Settings
+            </button>
+          </li>
+          <li>
+            <button
+              @click="activeTab = 'Contacts' "
+              :class="activeTab == 'Contacts' ? activeTabClass : inactiveTabClass"
+            >
+              Contacts
+            </button>
+          </li>
+        </ul>
+      </div>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                  Tabs                                   -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="mb-4 border-b border-gray-200 mt-20">
-      <ul
-        class="flex flex-wrap -mb-px text-sm font-medium text-center"
-      >
-        <li class="mr-2">
-          <button
-            class="inline-block p-4 border-b-2 rounded-t-lg text-white"
-            type="button"
-          >
-            Profile
-          </button>
-        </li>
-        <li class="mr-2">
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300 text-gray-400"
-            type="button"
-          >
-            Dashboard
-          </button>
-        </li>
-        <li class="mr-2">
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300 text-gray-400"
-          >
-            Settings
-          </button>
-        </li>
-        <li>
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300 text-gray-400"
-          >
-            Contacts
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    <!-- ------------------------------- Contenu ------------------------------- -->
-    <div id="myTabContent">
-      <div class="p-4 rounded-lg bg-gray-50">
-        <p class="text-sm text-gray-500">
-          This is some placeholder content the
-          <strong class="font-medium text-gray-800"
-            >Profile tab's associated content</strong
-          >. Clicking another tab will toggle the visibility
-          of this one for the next. The tab JavaScript swaps
-          classes to control the content visibility and
-          styling.
-        </p>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50">
-        <p class="text-sm text-gray-500">
-          This is some placeholder content the
-          <strong class="font-medium text-gray-800"
-            >Dashboard tab's associated content</strong
-          >. Clicking another tab will toggle the visibility
-          of this one for the next. The tab JavaScript swaps
-          classes to control the content visibility and
-          styling.
-        </p>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50">
-        <p class="text-sm text-gray-500">
-          This is some placeholder content the
-          <strong class="font-medium text-gray-800"
-            >Settings tab's associated content</strong
-          >. Clicking another tab will toggle the visibility
-          of this one for the next. The tab JavaScript swaps
-          classes to control the content visibility and
-          styling.
-        </p>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50">
-        <p class="text-sm text-gray-500">
-          This is some placeholder content the
-          <strong class="font-medium text-gray-800"
-            >Contacts tab's associated content</strong
-          >. Clicking another tab will toggle the visibility
-          of this one for the next. The tab JavaScript swaps
-          classes to control the content visibility and
-          styling.
-        </p>
+      <!-- ------------------------------- Contenu ------------------------------- -->
+      <div id="myTabContent">
+        <div
+          x-show="activeTab == 'Profile' "
+          class="p-4 rounded-lg bg-gray-50"
+        >
+          <p class="text-sm text-gray-500">
+            This is some placeholder content the
+            <strong class="font-medium text-gray-800"
+              >Profile tab's associated content</strong
+            >. Clicking another tab will toggle the
+            visibility of this one for the next. The tab
+            JavaScript swaps classes to control the content
+            visibility and styling.
+          </p>
+        </div>
+        <div
+          x-show="activeTab == 'Dashboard' "
+          class="p-4 rounded-lg bg-gray-50"
+        >
+          <p class="text-sm text-gray-500">
+            This is some placeholder content the
+            <strong class="font-medium text-gray-800"
+              >Dashboard tab's associated content</strong
+            >. Clicking another tab will toggle the
+            visibility of this one for the next. The tab
+            JavaScript swaps classes to control the content
+            visibility and styling.
+          </p>
+        </div>
+        <div
+          x-show="activeTab == 'Settings' "
+          class="p-4 rounded-lg bg-gray-50"
+        >
+          <p class="text-sm text-gray-500">
+            This is some placeholder content the
+            <strong class="font-medium text-gray-800"
+              >Settings tab's associated content</strong
+            >. Clicking another tab will toggle the
+            visibility of this one for the next. The tab
+            JavaScript swaps classes to control the content
+            visibility and styling.
+          </p>
+        </div>
+        <div
+          x-show="activeTab == 'Contacts' "
+          class="p-4 rounded-lg bg-gray-50"
+        >
+          <p class="text-sm text-gray-500">
+            This is some placeholder content the
+            <strong class="font-medium text-gray-800"
+              >Contacts tab's associated content</strong
+            >. Clicking another tab will toggle the
+            visibility of this one for the next. The tab
+            JavaScript swaps classes to control the content
+            visibility and styling.
+          </p>
+        </div>
       </div>
     </div>
   </body>

@@ -30,8 +30,35 @@
       </button>
     </div>
 
-    <div class="mt-20">
+    <div x-data="getLocation()" x-init="init" class="mt-20">
+      <template x-for="location in locations">
+        <p class="text-gray-400" x-text="location.name"></p>
+      </template>
       <!-- API : https://rickandmortyapi.com/api/location -->
     </div>
+
+    <script>
+      function getLocation(params) {
+        return {
+          locations: null,
+
+          init() {
+            this.$nextTick(() => {
+              this.getData();
+            });
+          },
+
+          getData() {
+            fetch(
+              "https://rickandmortyapi.com/api/location"
+            )
+              .then((result) => result.json())
+              .then(
+                (data) => (this.locations = data.results)
+              );
+          },
+        };
+      }
+    </script>
   </body>
 </html>
